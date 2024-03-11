@@ -24,4 +24,4 @@ cd /data/BookManageBackend
 docker stop bookconsumer && docker rm bookconsumer
 docker image rm bookconsumer:bookmanage
 docker build --build-arg MODULE_NAME=bookconsumer -t bookconsumer:bookmanage -f base.Dockerfile .
-docker run -p 8000:8000 --name="bookconsumer" -itd bookconsumer:bookmanage /bin/bash
+docker run -p 7000:7000 --name="bookconsumer" -itd bookconsumer:bookmanage /bin/bash
