@@ -1,0 +1,23 @@
+server:
+  port: 5000
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://123.57.58.105:2000/eureka/
+spring:
+  application:
+    name: bookprovider
+  datasource:
+    url: jdbc:mysql://123.57.58.105:3306/bookmanage?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: YX;(m:D3ihdza
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 864000
+  freemarker:
+    prefer-file-system-access: false
+logging:
+  level:
+    root: INFO

@@ -1,0 +1,32 @@
+name: Deploy workflow
+
+on:
+   push:
+       branches:
+         - 'main'
+   # Allows you to run this workflow manually from the Actions tab
+   workflow_dispatch:
+
+jobs:
+  deploy-workflow:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 123.57.58.105
+          username: root
+          key: ${{ secrets.MYALIYUNSECRET }}
+          port: 22
+          script: |
+            source /etc/profile
+            rm -rf /data/BookManageBackend
+            cd /data
+            git clone git@github.com:loveprolife/BookManageBackend.git
+            cd /data/BookManageBackend
+            ls -al
+            sh launch_on_prod.sh
